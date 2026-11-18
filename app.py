@@ -4,7 +4,6 @@ import requests
 st.title("🐧 Zoologist Front")
 st.markdown("Enter the penguin's measurements below to predict its species.")
 
-# 1. Input controllers for the user
 island = st.selectbox("Island", ["Biscoe", "Dream", "Torgersen"])
 bill_length_mm = st.number_input(
     "Bill length (mm)", min_value=0.0, value=39.1, step=0.1
@@ -20,7 +19,7 @@ body_mass_g = st.number_input(
 )
 sex = st.selectbox("Sex", ["Male", "Female"])
 
-url = "https://zoo-api-953497524187.asia-northeast1.run.app/predict"
+url = st.secrets['API_URL']
 
 if st.button("Predict Species"):
   params = {
